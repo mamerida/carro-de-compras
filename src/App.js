@@ -15,12 +15,7 @@ class App extends Component{
         {name:"Arbejas", price: 2500 , img:"/productos/arbejas.jpg"},
         {name:"Lechuga", price: 500 , img:"/productos/lechuga.jpg"},
       ],
-      carro:[
-        //estructura que va a seguir mi carrito de compras 
-
-        // {name:"Tomate", price: 1500 , img:"/productos/tomate.jpg", cantidad: 1},
-
-      ]
+      carro:[      ]
     }
     //agrego la funcionalidad de carro al boton "agregar al carro" concateno al elemento a agregar la cantidad
     agregarAlCarro = (producto) =>{
@@ -44,10 +39,10 @@ class App extends Component{
     }
 
     render(){
-      console.log(this.state.carro)
       return(
         <div>
-        <Navbar/>
+          {/* paso la propiedad carro al navbar para que el carrito tenga acceso a la misma */}
+        <Navbar carro={this.state.carro}/>
         <Layout>
           <Title/>
           

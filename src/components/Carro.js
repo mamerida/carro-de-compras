@@ -21,11 +21,13 @@ const styles = {
 
 class Carro extends Component{
     render(){
+        const {carro} = this.props
+        const cantidad = carro.reduce((acc,el)=> acc + el.cantidad ,0)
         return(
             <div>
                 {/* Se crea una burbuja indicando los elementos en el carrito donde le estilo creado ahora se usa para posicionar la alerta */}
                 <span style={styles.bubble} >
-                    <BubbleAlert value={9}/>
+                    { cantidad !== 0 ? <BubbleAlert value={cantidad}/> : null }                   
                 </span>
                 <button style={styles.carro}>
                     Carro
