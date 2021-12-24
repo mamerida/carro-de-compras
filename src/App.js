@@ -1,6 +1,9 @@
-import logo from './logo.svg';
+
 import { Component } from 'react';
-import './App.css';
+import Productos from "./components/Productos"
+
+
+
 
 class App extends Component{
   //creo un estado inicial, que serian los productos del carrito
@@ -15,7 +18,11 @@ class App extends Component{
 
     render(){
       return(
-        <div>Hola Mundo</div>
+        <Productos
+          agregarAlCarro={()=> console.log("No hace nada")}
+          productos = {this.state.productos}
+        />
+
       )
 
 
