@@ -1,7 +1,7 @@
 
 import { Component } from 'react';
 import Productos from "./components/Productos"
-
+import Layout from './components/Layout.js' // esto nos va a permitir centrar el contenido de la pagina web y agergar un menu
 
 
 
@@ -18,11 +18,17 @@ class App extends Component{
 
     render(){
       return(
+        <div>
+        <Layout>
+
+
+        
         <Productos
           agregarAlCarro={(producto)=> console.log(producto)}
           productos = {this.state.productos}
         />
-
+        </Layout>
+        </div>
       )
 
 
