@@ -15,7 +15,9 @@ class App extends Component{
         {name:"Arbejas", price: 2500 , img:"/productos/arbejas.jpg"},
         {name:"Lechuga", price: 500 , img:"/productos/lechuga.jpg"},
       ],
-      carro:[      ]
+      carro:[      ],
+      //para poder mostrar y ocultar el carro
+      esCarroVisible:false
     }
     //agrego la funcionalidad de carro al boton "agregar al carro" concateno al elemento a agregar la cantidad
     agregarAlCarro = (producto) =>{
@@ -37,12 +39,18 @@ class App extends Component{
       })
     }
     }
+    mostrarCarro =() =>{
+      this.setState({esCarroVisible: !this.state.esCarroVisible})
+    }
 
     render(){
+      const {esCarroVisible} = this.state
       return(
+        
         <div>
-          {/* paso la propiedad carro al navbar para que el carrito tenga acceso a la misma */}
-        <Navbar carro={this.state.carro}/>
+          {/* paso la propiedad carro al navbar para que el carrito tenga acceso a la misma  ahora paso el resto de los elementos para dentro del navbar llamar al boton de carro
+          y trabajar las propiedades desde ahi */}
+        <Navbar carro={this.state.carro}  esCarroVisible={esCarroVisible} mostrarCarro={this.mostrarCarro}/>
         <Layout>
           <Title/>
           
