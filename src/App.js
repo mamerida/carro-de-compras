@@ -14,11 +14,37 @@ class App extends Component{
         {name:"Tomate", price: 1500 , img:"/productos/tomate.jpg"},
         {name:"Arbejas", price: 2500 , img:"/productos/arbejas.jpg"},
         {name:"Lechuga", price: 500 , img:"/productos/lechuga.jpg"},
+      ],
+      carro:[
+        //estructura que va a seguir mi carrito de compras 
+
+        // {name:"Tomate", price: 1500 , img:"/productos/tomate.jpg", cantidad: 1},
+
       ]
     }
+    //agrego la funcionalidad de carro al boton "agregar al carro" concateno al elemento a agregar la cantidad
+    agregarAlCarro = (producto) =>{
+      const {carro } = this.state
+      //agrego la condicion para que en caso de encontrar este elemento dentro del carro sume cantidades
+      if(carro.find(x => x.name=== producto.name)){
 
+
+        const newCarro = carro.map(
+            x=> x.name === producto.name ? ({...x, cantidad: x.cantidad + 1 }): x
+         )
+        return this.setState({carro: newCarro})
+
+      }else{
+      return this.setState({
+        carro: this.state.carro.concat({
+          ...producto,cantidad:1
+        }) // toma el arreglo y lo agrega
+      })
+    }
+    }
 
     render(){
+      console.log(this.state.carro)
       return(
         <div>
         <Navbar/>
@@ -26,7 +52,7 @@ class App extends Component{
           <Title/>
           
           <Productos
-            agregarAlCarro={(producto)=> console.log(producto)}
+            agregarAlCarro={this.agregarAlCarro}
             productos = {this.state.productos}
           />
         </Layout>

@@ -23,7 +23,6 @@ class Producto extends Component{
         // creo la variable de producto para poder acceder a las propiedades del mismo
         const {producto,agregarAlCarro } = this.props
         
-        console.log(this.props)
         return(
             <div style={styles.producto}>
                 <img alt ={producto.name} src = {producto.img} style={styles.img}/>
