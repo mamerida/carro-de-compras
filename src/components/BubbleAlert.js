@@ -11,10 +11,19 @@ const styles={
     }
 }
 class BubbleAlert extends Component{
+    //metodo para obtener eleemntos dentro del carrito 
+    getNumber(n){
+        if(!n){
+            return " "
+        }
+        return n > 9 ? '+9' : n
+    }
     render(){
+        //constante que va a ser usada al momento de llamar al componente por eso se usa props 
+        const{value} = this.props
         return(
             <span style={styles.bubbleAlert}>
-                5
+                {this.getNumber(value)}
             </span>
         )
     }

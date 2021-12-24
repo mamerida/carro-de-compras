@@ -25,7 +25,7 @@ class Carro extends Component{
             <div>
                 {/* Se crea una burbuja indicando los elementos en el carrito donde le estilo creado ahora se usa para posicionar la alerta */}
                 <span style={styles.bubble} >
-                    <BubbleAlert/>
+                    <BubbleAlert value={9}/>
                 </span>
                 <button style={styles.carro}>
                     Carro
